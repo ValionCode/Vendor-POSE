@@ -23,10 +23,24 @@ public class Vendor
     }
     public void UpdatePerishablePrices()
     {
-
+        foreach (var entry in InventoryPrices)
+        {
+            if (entry.Value is FoodProduct food)
+            {
+                food.ChangePrice(food.Price * 0.95m);
+            }
+            else if (entry.Value is DrinkProduct drink)
+            {
+                drink.ChangePrice(drink.Price * 0.95m);
+            }
+        }
     }
     public void DecreasePatience()
     {
 
+    }
+    public void AddProduct(Product product)
+    {
+        
     }
 }
