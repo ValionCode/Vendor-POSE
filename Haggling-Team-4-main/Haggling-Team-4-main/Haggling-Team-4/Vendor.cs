@@ -17,4 +17,16 @@ public class Vendor
         Patience = 10;
         InventoryPrices = new Dictionary<string, Product>();
     }
+    public bool Negotiate(string productName, double offeredPrice)
+    {
+        return false;
+    }
+    public void UpdatePerishablePrices()
+    {
+
+    }
+    public void DecreasePatience()
+    {
+
+    }
 }
