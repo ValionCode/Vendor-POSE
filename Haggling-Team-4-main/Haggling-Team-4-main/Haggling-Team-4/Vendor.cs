@@ -7,21 +7,30 @@ using System.Threading.Tasks;
 namespace Haggling_Team_4;
 public class Vendor
 {
-    public Dictionary<string, Product> InventoryPrices { get; private set; }
+    public List<Product>? GetProducts { get; private set; };
+    public Dictionary<Product, int> InventoryPrices { get; private set; }
     public double Money { get; private set; }
     public int Patience { get; private set; }
+
 
     public Vendor(double initialMoney)
     {
         Money = initialMoney;
-        Patience = 10;
+        Patience = 100;
         InventoryPrices = new Dictionary<string, Product>();
     }
-    public bool Negotiate(string productName, double offeredPrice)
-    {
-        return false;
+    public bool Negotiate(string productName, decimal offeredPrice, bool IsChild)
+    {   
+        if(Patience == 0) return false;
+        DecreasePatience(IsChild);
+        if(offeredPrice > InventoryPrices[productName].Price) return true;
+        else return false;
     }
-    public void UpdatePerishablePrices()
+
+    public Product? BuyProduct(string productName){
+
+    }
+    public void UpdatePerishablePrices()    
     {
         foreach (var entry in InventoryPrices)
         {
@@ -35,12 +44,34 @@ public class Vendor
             }
         }
     }
-    public void DecreasePatience()
+    public void DecreasePatience(bool IsChild)
     {
-
+        if(IsChild){
+            Patience -= 5;
+        }else{
+            Patience -= 10;
+        }
     }
     public void AddProduct(Product product)
     {
        
+    }
+
+    public bool RemoveProduct(int id)
+    {
+       return false;
+    }
+
+    public bool IsProductInStock(int id) 
+    {
+        
+        if(InventoryPrices[])
+        return false
+    }
+    public int GetPatience(){
+        return Patience;
+    }
+    public void FillList(){
+
     }
 }
