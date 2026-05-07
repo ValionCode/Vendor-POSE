@@ -7,17 +7,35 @@ using System.Threading.Tasks;
 namespace Haggling_Team_4;
 public class Vendor
 {
-    public List<Product>? GetProducts { get; private set; };
+    public List<Product>? GetProducts { get; private set; }
     public Dictionary<Product, int> InventoryPrices { get; private set; }
     public double Money { get; private set; }
     public int Patience { get; private set; }
+
+
+    // private methods
+    // ================================================================================
+
+    private Product Search(string productName)
+    {
+        foreach (var entry in InventoryPrices)
+        {
+            if (entry.Key.ProductName == productName)
+            {
+                return entry.Key;
+            }
+        }
+        return null;
+    }
+
+    // ================================================================================
 
 
     public Vendor(double initialMoney)
     {
         Money = initialMoney;
         Patience = 100;
-        InventoryPrices = new Dictionary<string, Product>();
+        InventoryPrices = new Dictionary<Product, int>();
     }
     public bool Negotiate(string productName, decimal offeredPrice, bool IsChild)
     {   
@@ -28,17 +46,17 @@ public class Vendor
     }
     //Test
     public Product? BuyProduct(string productName){
-
+        throw new NotImplementedException();
     }
     public void UpdatePerishablePrices()    
     {
         foreach (var entry in InventoryPrices)
         {
-            if (entry.Value is FoodProduct food)
+            if (entry.Key is FoodProduct food)
             {
                 food.ChangePrice(food.Price * 0.95m);
             }
-            else if (entry.Value is DrinkProduct drink)
+            else if (entry.Key is DrinkProduct drink)
             {
                 drink.ChangePrice(drink.Price * 0.95m);
             }
@@ -64,7 +82,6 @@ public class Vendor
 
     public bool IsProductInStock(int id) 
     {
-        
         if(InventoryPrices[])
         return false
     }
