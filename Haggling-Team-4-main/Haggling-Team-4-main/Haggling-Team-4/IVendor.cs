@@ -1,8 +1,8 @@
-﻿using System;
+﻿namespace Haggling_Team_4;
 
-public class Class1
+public class IVendor
 {
-	public Class1()
-	{
-	}
+    public bool Negotiate(Product product, double offeredPrice);
+    public void UpdatePerishablePrices();
+    public void AddProduct(Product product);
 }
