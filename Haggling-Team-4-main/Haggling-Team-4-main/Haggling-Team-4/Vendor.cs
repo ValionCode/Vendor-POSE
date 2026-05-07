@@ -26,7 +26,7 @@ public class Vendor
         if(offeredPrice > InventoryPrices[productName].Price) return true;
         else return false;
     }
-
+    //Test
     public Product? BuyProduct(string productName){
 
     }
