@@ -1,10 +1,16 @@
 {
   "ExpandedNodes": [
+<<<<<<< HEAD
+    ""
+  ],
+  "SelectedNode": "\\Haggling-Team-4.sln",
+=======
     "",
     "\\Haggling-Team-4-main",
     "\\Haggling-Team-4-main\\Haggling-Team-4-main",
     "\\Haggling-Team-4-main\\Haggling-Team-4-main\\Haggling-Team-4"
   ],
   "SelectedNode": "\\Haggling-Team-4-main\\Haggling-Team-4-main\\Haggling-Team-4\\Vendor.cs",
+>>>>>>> 445279535d71a89e9768485d8b5c562fb307589c
   "PreviewInSolutionExplorer": false
 }
